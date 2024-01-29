@@ -1,7 +1,3 @@
-# UTF-8 Validation
-This project includes a script for validating whether a file is encoded in UTF-8.
+# Alx Interview Repository
 
-## Usage
-
-Ensure you have Python 3.4.3 installed. Run the script with the following command:
-
+This repository contains a project for an Alx interview
