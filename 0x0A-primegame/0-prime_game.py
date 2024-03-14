@@ -2,12 +2,16 @@
 
 """Prime Game Algorithm Python"""
 
+
 def is_prime(n):
     """Check if a number n is prime"""
+    if n < 2:
+        return False
     for i in range(2, int(n ** 0.5) + 1):
         if n % i == 0:
             return False
     return True
+
 
 def calculate_primes(n, primes):
     """Calculate all primes up to n and store in the primes list"""
@@ -18,6 +22,7 @@ def calculate_primes(n, primes):
                 primes.append(i)
             else:
                 primes.append(0)
+
 
 def isWinner(x, nums):
     """
@@ -47,5 +52,5 @@ def isWinner(x, nums):
         return "Maria"
     elif players_wins["Ben"] > players_wins["Maria"]:
         return "Ben"
-
-    return None
+    else:
+        return None
