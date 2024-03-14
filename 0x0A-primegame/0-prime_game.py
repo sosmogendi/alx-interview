@@ -4,15 +4,17 @@
 
 
 def is_prime(n):
-    """Checks if a number given n is a prime number"""
+    """Check if a number n is prime"""
+    if n < 2:
+        return False
     for i in range(2, int(n ** 0.5) + 1):
-        if not n % i:
+        if n % i == 0:
             return False
     return True
 
 
 def calculate_primes(n, primes):
-    """Calculate all primes"""
+    """Calculate all primes up to n and store in the primes list"""
     top_prime = primes[-1]
     if n > top_prime:
         for i in range(top_prime + 1, n + 1):
@@ -22,22 +24,21 @@ def calculate_primes(n, primes):
                 primes.append(0)
 
 
-def is_winner(x, nums):
+def isWinner(x, nums):
     """
     Determine the winner of each round based on the rules provided.
-    :param x: Number of rounds
-    :param nums: An array of n for each round
-    :return: Name of the player that won the most rounds
-             If the winner cannot be determined, return None
+    x is the number of rounds and nums is an array of n
+    Return: name of the player that won the most rounds
+    If the winner cannot be determined, return None
+    You can assume n and x will not be larger than 10000
     """
     players_wins = {"Maria": 0, "Ben": 0}
-    primes = [0, 0, 2]
+    primes = [0, 0, 2]  # Initialize with first three primes
 
     calculate_primes(max(nums), primes)
 
-    for round_num in range(x):
-        sum_options = sum((i != 0 and i <= nums[round_num])
-                          for i in primes[:nums[round_num] + 1])
+    for num in nums:
+        sum_options = sum(1 for p in primes[:num + 1] if p != 0)
 
         if sum_options % 2:
             winner = "Maria"
