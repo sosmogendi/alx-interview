@@ -15,11 +15,11 @@ def pascal_triangle(n):
     '''
     # Handle edge cases
     if n <= 0:
-        return []
+        return ([])
     if n == 1:
-        return [[1]]
+        return ([[1]])
     if n == 2:
-        return [[1], [1, 1]]
+        return ([[1], [1, 1]])
 
     # Initialize Pascal's Triangle with the first two rows
     triangle = [[1], [1, 1]]
@@ -33,4 +33,4 @@ def pascal_triangle(n):
         row.append(1)  # Each row ends with 1
         triangle.append(row)
 
-    return triangle
+    return (triangle)
